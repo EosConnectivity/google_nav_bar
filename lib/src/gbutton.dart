@@ -19,6 +19,7 @@ class GButton extends StatefulWidget {
   final TextStyle? textStyle;
   final double? iconSize;
   final Function? onPressed;
+  final Future<bool> Function()? validateTap;
   final String text;
   final IconData icon;
   final Color? backgroundColor;
@@ -56,6 +57,7 @@ class GButton extends StatefulWidget {
     this.iconSize,
     this.leading,
     this.onPressed,
+    this.validateTap,
     this.backgroundGradient,
     this.borderRadius,
     this.border,

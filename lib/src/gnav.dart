@@ -127,8 +127,10 @@ class _GNavState extends State<GNav> {
                       backgroundColor:
                           t.backgroundColor ?? widget.tabBackgroundColor,
                       duration: widget.duration,
-                      onPressed: () {
-                        if (!clickable) return;
+                      onPressed: () async {
+                        if (!clickable ||
+                            t.validateTap != null &&
+                                !await t.validateTap!.call()) return;
                         setState(() {
                           selectedIndex = widget.tabs.indexOf(t);
                           clickable = false;
